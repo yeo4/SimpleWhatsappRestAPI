@@ -25,7 +25,7 @@ class YoServer:
                 return "message Error"
             return "message send"
         else:
-            return "Accsses dined"
+            return "Unauthorized access"
 
     def ReciveMessage(self):
         if self.Password(request.get_header('password')):
@@ -35,7 +35,7 @@ class YoServer:
             return "Accsses dined"
 
     def Password(self,password):
-        return (password == '0x347c2a6e4e34fb1497bd6606354c3c56b63c3694a88cf16d0dd5416592fb12e2691512248786a6da6983e04b1a711a421e84674b49a042c2f2f197d628f4f24d8dc7beafa54c3f3ccd5828181c22ef53L')
+        return (password == 'PASSWORD')
 
     def _route(self):
         self._app.post('/SendMessage', callback=self.SendMessage)
